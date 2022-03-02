@@ -1,0 +1,21 @@
+{
+    "name": "wallaceclark/dio-cep",
+    "description": "Busca de CEP online.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wallaceclark\\DioCep\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WallaceClark",
+            "email": "walclark@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.0"
+    }
+}
