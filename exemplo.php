@@ -7,6 +7,7 @@
     $busca = new Search();
     $resultado = $busca->getAddressFromZipcode('01033-000');
 
-    print_r($resultado);
+    echo json_encode($resultado);
+    //print_r($resultado);
 
 ?>
