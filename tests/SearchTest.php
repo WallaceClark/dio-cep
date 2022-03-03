@@ -5,25 +5,51 @@
 
     class SearchTest extends TestCase 
     {
-        public function testGetAddressFromZipcodeDefaultUsage()
+        /**
+         * @dataProvider dadosTeste
+         */
+        public function testGetAddressFromZipcodeDefaultUsage(string $input, array $esperado)
         {
             $resultado = new Search;
-            $resultado = $resultado->getAddressFromZipcode('01033000');
-
-            $esperado = [
-                "cep" => "01033-000",
-                "logradouro" => "Avenida Cásper Líbero",
-                "complemento" => "lado par",
-                "bairro" => "Centro",
-                "localidade" => "São Paulo",
-                "uf" => "SP",
-                "ibge" => "3550308",
-                "gia" => "1004",
-                "ddd" => "11",
-                "siafi" => "7107"
-            ];
+            $resultado = $resultado->getAddressFromZipcode($input);
 
             $this->assertEquals($esperado, $resultado);
+        }
+
+        public function dadosTeste()
+        {
+            return [
+                "Endereço Praça da Sé" => [
+                    "01001000",
+                    [
+                        "cep" => "01001-000",
+                        "logradouro" => "Praça da Sé",
+                        "complemento" => "lado ímpar",
+                        "bairro" => "Sé",
+                        "localidade" => "São Paulo",
+                        "uf" => "SP",
+                        "ibge" => "3550308",
+                        "gia" => "1004",
+                        "ddd" => "11",
+                        "siafi" => "7107"
+                    ]
+                ],
+                "Endereço Cásper Líbero" => [
+                    "01033000",
+                    [
+                        "cep" => "01033-000",
+                        "logradouro" => "Avenida Cásper Líbero",
+                        "complemento" => "lado par",
+                        "bairro" => "Centro",
+                        "localidade" => "São Paulo",
+                        "uf" => "SP",
+                        "ibge" => "3550308",
+                        "gia" => "1004",
+                        "ddd" => "11",
+                        "siafi" => "7107"
+                    ]
+                ]
+            ];
         }
 
     }
