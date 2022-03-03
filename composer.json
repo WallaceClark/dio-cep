@@ -4,8 +4,11 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
+        "psr-0": {
+            "Search":"src/"
+        },
         "psr-4": {
-            "Wallaceclark\\DioCep\\": "src/"
+            "WallaceClark\\DioCep\\": "src/"
         }
     },
     "authors": [
